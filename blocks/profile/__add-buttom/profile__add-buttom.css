@@ -1,5 +1,5 @@
 .profile__add-buttom {
-	box-sizing: 
+	box-sizing: border-box;
 background-color: #000;
 background: url('../../../images/AddButton.png');
 background-size: auto;

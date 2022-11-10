@@ -6,7 +6,6 @@
   grid-template-columns: minmax(189px, 294px) auto;
   gap: 8px 0;
   justify-items: flex-start;
-  align-items: center;
   grid-template-areas:
     'title edit-buttom'
     'subtitle subtitle';
