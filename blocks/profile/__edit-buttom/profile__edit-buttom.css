@@ -1,7 +1,7 @@
 .profile__edit-buttom {
   box-sizing: border-box;
   background-color: #000;
-  background: url('../../../../images/Edit-Button.png');
+  background: url('../../../images/Edit-Button.png');
   background-size: cover;
   grid-area: edit-buttom;
   width: 24px;

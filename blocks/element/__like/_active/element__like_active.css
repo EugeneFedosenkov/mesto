@@ -1,7 +1,7 @@
 .element__like_active{
   box-sizing: border-box;
   background-color: #000;
-  background: url('../../../../../images/LikeHeart.png');
+  background: url('../../../../images/LikeHeart.png');
   background-size: cover;
   border: none;
   width: 22px;
