@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="./pages/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+  </head>
+
+  <body class="page">
+
+    <header class="header">
+<img class="logo" src="./images/Vector.png" alt="логотип_Место">
+    </header>
+
+    <main  id="content" class="content">
+
+<section class="profile">
+  <img class="profile__avatar" src="./images/image.svg" alt="фото_профиля">
+
+  <div class="profile__info">
+    <h1 class="profile__info__title">Жак-Ив Кусто</h1>
+    <button id="editButtom" type="button" class="profile__info__edit-buttom" name="profile"></button>
+    <p class="profile__info__subtitle">Исследователь океана</p>
+  </div>
+  <button type="button" class="profile__add-buttom" name="profile"></button>
+</section>
+
+
+
+<section class="cards">
+  <ul class="elements">
+    <li class="element">
+      <img class="element__mask" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="карачаевск">
+      <div class="element__container">
+        <p class="element__container__title">Карачаевск</p>
+        <button class="element__container__like"></button>
+     </div>
+    </li>
+
+    <li class="element">
+      <img class="element__mask" src="./images/kirill-pershin-2.jpg" alt="карачаевск">
+      <div class="element__container">
+        <p class="element__container__title">Гора Эльбрус</p>
+        <button class="element__container__like"></button>
+     </div>
+    </li>
+
+        <li class="element">
+      <img class="element__mask" src="./images/kirill-pershin-1556355 3.png" alt="карачаевск">
+      <div class="element__container">
+        <p class="element__container__title">Домбай</p>
+        <button class="element__container__like"></button>
+     </div>
+    </li>
+
+        <li class="element">
+      <img class="element__mask" src="./images/kirill-pershin-1404681 4.png" alt="карачаевск">
+      <div class="element__container">
+        <p class="element__container__title">Гора Эльбрус</p>
+        <button class="element__container__like"></button>
+     </div>
+    </li>
+
+        <li class="element">
+      <img class="element__mask" src="./images/kirill-pershin-1556355 5.png" alt="карачаевск">
+      <div class="element__container">
+        <p class="element__container__title">Домбай</p>
+        <button class="element__container__like"></button>
+     </div>
+    </li>
+
+        <li class="element">
+      <img class="element__mask" src="./images/kirill-pershin-1088404-6.png" alt="карачаевск">
+      <div class="element__container">
+        <p class="element__container__title">Карачаево-Черкесия</p>
+        <button class="element__container__like "></button>
+     </div>
+    </li>
+  </ul>
+</section>
+    </main>
+
+    <footer class="footer">
+<p class="footer__copyright">© 2020 Mesto Russia</p>
+    </footer>
+
+<div id="popup" class="popup">
+    <form class="popup__container form" action="">
+       <div class="form__main-container">
+<button type="button" class="form__closeIcon"></button>
+        <h3 class="form__text">Редактировать профиль</h3>
+        <fieldset class="form__input-container">
+          <input type="text" class="form__item form__item_el_name" name="name" value="" placeholder="Имя">
+          <input type="text" class="form__item form__item_el_about" name="profession" value="" placeholder="О себе">
+        </fieldset>
+        <button type="submit" class="form__button" value="" >Сохранить</button>
+      </div>
+  </div>
+</form>
+</div>
+<script src="scripts/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+.form__closeIcon {
+  background: url('../../../images/CloseIcon1.png');
+  background-size: contain;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  cursor: pointer;
+  top: -40px;
+  right: -40px;
+  border: none;
+  transition-duration: 0.3s;
+}
+
+.form__closeIcon:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 550px) {
+  .form__closeIcon {
+    top: -36px;
+    right: 0px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form__closeIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
