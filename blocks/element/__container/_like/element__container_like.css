@@ -1,7 +1,7 @@
-.element__container__like_active{
+.element__container_like{
   box-sizing: border-box;
-  background-color: #000;
-  background: url('../../../../../images/LikeHeart.png');
+  background-color: #ffffff;
+  background: url('../../../../images/heart.png');
   background-size: cover;
   border: none;
   width: 22px;
@@ -9,4 +9,8 @@
   cursor: pointer;
   transition-duration: 1s;
   margin: 0 20px 0 0;
+}
+
+.element__container_like:hover{
+  opacity: 0.5;
 }

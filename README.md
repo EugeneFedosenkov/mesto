@@ -12,4 +12,4 @@
 Добавлен JS код для интерактивности
 
 Ссылка на страницу:
-https://
+https://eugenefedosenkov.github.io/mesto/
