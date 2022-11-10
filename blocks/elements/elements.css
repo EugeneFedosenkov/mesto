@@ -4,7 +4,6 @@
   max-height: 744;
   list-style-type: none;
   padding: 0;
-  margin: 51px 0 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   justify-content: center;
