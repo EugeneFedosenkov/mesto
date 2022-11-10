@@ -1,10 +1,10 @@
 
 
-let name = document.querySelector('.profile__info_type_name');
-let job = document.querySelector('.profile__info_type_job');
+let name = document.querySelector('.profile__name');
+let job = document.querySelector('.profile__job');
 
 // переменная кнопки редактирования
-let editButtom = document.querySelector('.profile__info_type_edit-buttom');
+let editButtom = document.querySelector('.profile__edit-buttom');
 
 // переменная кнопки закрытия
 let closeButtom = document.querySelector('.form__closeIcon');
@@ -55,10 +55,10 @@ let submit = document.querySelector('.form__button');
 submit.addEventListener('click', popupClose);
 
 // Функция лайка
-let like = document.querySelector('.element__container_like');
+let like = document.querySelector('.element__like');
 
 function likeUp(){
-	like.classList.toggle('element__container_like_active');
+	like.classList.toggle('element__like_active');
 }
 
 like.addEventListener('click', likeUp);
