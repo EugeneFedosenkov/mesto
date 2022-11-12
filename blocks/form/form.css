@@ -1,0 +1,12 @@
+.form {
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 460px) {
+  .form {
+    margin-left: 19px;
+    margin-right: 19px;
+  }
+}
