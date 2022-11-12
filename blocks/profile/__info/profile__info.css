@@ -9,7 +9,6 @@
   grid-template-areas:
     'title edit-buttom'
     'subtitle subtitle';
-  overflow: hidden;
   align-items: baseline;
 }
 
@@ -22,7 +21,6 @@
 
 @media screen and (max-width: 320px) {
   .profile__info {
-    grid-template-columns: minmax(189px, 294px) 40px;
     padding: 0 0 33px 0px;
     max-width: 250px;
   }

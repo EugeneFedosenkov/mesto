@@ -1,22 +1,23 @@
 .profile__add-buttom {
-	box-sizing: border-box;
-background-color: #000;
-background: url('../../../images/AddButton.png');
+box-sizing: border-box;
+background-color: transparent;
+background: url('../../../images/addd.svg');
+background-position: center;
 background-size: auto;
+background-repeat: no-repeat;
 width: 150px;
 height: 50px;
 cursor: pointer;
 padding: 0;
 margin: 0;
-box-shadow: 2px 2px 0 #FFFFFF inset, -2px -2px 0 #FFFFFF inset;
 border-radius: 2px;
 transition-duration: 1s;
+border: 1px solid #FFFFFF;
 }
 
 @media screen and (max-width: 695px){
 .profile__add-buttom {
-	background: url('../../../images/AddButton2.png');
-width: 282px;
+width: 100%;
   }
 }
 

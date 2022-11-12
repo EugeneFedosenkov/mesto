@@ -1,8 +1,10 @@
 .profile__edit-buttom {
   box-sizing: border-box;
-  background-color: #000;
-  background: url('../../../images/Edit-Button.png');
-  background-size: cover;
+  background-color: transparent;
+  background: url('../../../images/Edit1.svg');
+  background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
   grid-area: edit-buttom;
   width: 24px;
   height: 24px;

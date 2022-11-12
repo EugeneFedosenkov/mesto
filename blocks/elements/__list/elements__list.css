@@ -1,0 +1,25 @@
+.elements__list{
+  box-sizing: border-box;
+  max-width: 880px;
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  justify-content: center;
+  gap: 20px 17px;
+  margin: 51px 0 0 0;
+  justify-items: center;
+}
+
+@media screen and (max-width: 635px){
+.elements__list{
+  margin-top: 31px;
+  }
+}
+
+@media screen and (max-width: 320px){
+.elements__list{
+  gap: 19px 17px;
+  margin-top: 36px;
+  }
+}
