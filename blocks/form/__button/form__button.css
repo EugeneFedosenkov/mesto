@@ -8,11 +8,11 @@
   line-height: 22px;
   text-align: center;
   color: #ffffff;
-  padding: 0 0 0 0;
-  margin: 48px 0 0 0;
+  padding: 0;
   cursor: pointer;
   transition-duration: 0.2s;
   border: none;
+  margin: 48px 0 34px 0;
 }
 
 .form__button:hover {
@@ -29,6 +29,7 @@
 
 @media screen and (max-width: 320px) {
   .form__button {
-    margin-top: 42px;
+    margin-top: 45px;
+    margin-bottom: 25px;
   }
 }

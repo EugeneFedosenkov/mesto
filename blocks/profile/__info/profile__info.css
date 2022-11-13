@@ -2,7 +2,6 @@
   flex-grow: 1;
   padding: 0 0 4px 30px;
   display: grid;
-  max-height: 120px;
   grid-template-columns: minmax(189px, 294px) auto;
   gap: 8px 0;
   justify-items: flex-start;

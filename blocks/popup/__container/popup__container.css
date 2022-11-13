@@ -9,10 +9,7 @@
   max-width: 430px;
   padding-left: 36px;
   padding-right: 36px;
-  top: 21%;
-  max-height: 330px;
 }
-
 
 @media screen and (max-width: 500px) {
   .popup__container {
@@ -21,21 +18,9 @@
   }
 }
 
-
-
-
-
 @media screen and (max-width: 360px) {
   .popup__container {
     padding-left: 3px;
     padding-right: 3px;
-    max-height: 322px;
   }
 }
-
-
-
-
-
-
-

@@ -12,3 +12,9 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background-color: transparent;
 }
+
+@media screen and (max-width: 320px) {
+  .form__item {
+    padding-bottom: 8px;
+  }
+}

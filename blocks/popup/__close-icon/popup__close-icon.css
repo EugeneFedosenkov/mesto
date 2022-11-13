@@ -1,4 +1,4 @@
-.popup__closeicon {
+.popup__close-icon {
   background: url('../../../images/CloseIcon.svg');
   background-size: contain;
   width: 32px;
@@ -11,19 +11,19 @@
   transition-duration: 0.3s;
 }
 
-.popup__closeicon:hover {
+.popup__close-icon:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 550px) {
-  .popup__closeicon {
+  .popup__close-icon {
     top: -36px;
     right: 0px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .popup__closeicon {
+  .popup__close-icon {
     width: 20px;
     height: 20px;
   }

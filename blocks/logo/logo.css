@@ -1,6 +1,19 @@
-@media screen and (max-width: 635px){
-.logo{
-width: 103.74px;
-height: 24.4px;
+@media screen and (max-width: 940px) {
+  .logo {
+    padding: 0 0  0 27px;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .logo {
+    width: 103.74px;
+    height: 24.4px;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .logo {
+    width: 103.74px;
+    height: 24.4px;
   }
 }
