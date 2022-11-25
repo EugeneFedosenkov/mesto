@@ -1,0 +1,15 @@
+.element__trash{
+box-sizing: border-box;
+  background-color: #ffffff;
+  background: url('../../../images/Trash.svg');
+  background-size: cover;
+  border: none;
+  width: 18px;
+  height: 19px;
+  cursor: pointer;
+  transition-duration: 1s;
+  margin: 0 0px 0 0;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

@@ -31,6 +31,7 @@
           <p class="profile__job">Исследователь океана</p>
         </div>
         <button
+          id="addButtom"
           type="button"
           class="profile__add-buttom"
           name="profile"
@@ -38,79 +39,7 @@
       </section>
 
       <section class="elements">
-        <ul class="elements__list">
-          <li class="element">
-            <img
-              class="element__mask"
-              src="./images/kirill-pershin-1088404-unsplash.jpg"
-              alt="Древняя церковь в чистом поле"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Карачаевск</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              class="element__mask"
-              src="./images/kirill-pershin-2.jpg"
-              alt="Пики Эльбруса за горизонтом"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Гора Эльбрус</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              class="element__mask"
-              src="./images/kirill-pershin-1556355-3.png"
-              alt="Лес на фоне скал"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Домбай</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              class="element__mask"
-              src="./images/kirill-pershin-1404681-4.png"
-              alt="Пики Эльбруса за горизонтом"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Гора Эльбрус</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              class="element__mask"
-              src="./images/kirill-pershin-1556355-5.png"
-              alt="Лес на фоне скал"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Домбай</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img
-              class="element__mask"
-              src="./images/kirill-pershin-1088404-6.png"
-              alt="Древняя церковь в чистом поле"
-            />
-            <div class="element__container">
-              <h2 class="element__title">Карачаево-Черкесия</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-        </ul>
+        <ul class="elements__list"></ul>
       </section>
     </main>
 
@@ -118,11 +47,11 @@
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup_edit">
       <div class="popup__container">
         <button type="button" class="popup__close-icon"></button>
         <h3 class="popup__text">Редактировать профиль</h3>
-        <form class="form" action="URL" name="editForm">
+        <form class="form form_edit" action="URL" name="editForm">
           <fieldset class="form__input-container">
             <input
               type="text"
@@ -143,6 +72,51 @@
         </form>
       </div>
     </div>
+
+    <div class="popup popup_add">
+      <div class="popup__container">
+        <button type="button" class="popup__close-icon"></button>
+        <h3 class="popup__text">Новое место</h3>
+        <form class="form form_add" action="URL" name="addForm">
+          <fieldset class="form__input-container">
+            <input
+              type="text"
+              class="form__item form__item_el_title"
+              name="name"
+              value=""
+              placeholder="Название"
+            />
+            <input
+              type="url"
+              class="form__item form__item_el_url"
+              name="url"
+              value=""
+              placeholder="Ссылка на картинку"
+            />
+          </fieldset>
+          <button type="submit" class="form__button" value="">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_largeimg">
+      <div class="popup__img">
+        <button type="button" class="popup__close-icon"></button>
+        <img class="popup__img__image" src="" alt="" />
+        <h3 class="popup_title-img"></h3>
+      </div>
+    </div>
+
+    <template id="elements-card">
+      <li class="element">
+        <button class="element__trash" type="button"></button>
+        <img class="element__mask" />
+        <div class="element__container">
+          <h2 class="element__title"></h2>
+          <button type="button" class="element__like"></button>
+        </div>
+      </li>
+    </template>
     <script src="scripts/index.js"></script>
   </body>
 </html>
