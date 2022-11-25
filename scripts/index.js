@@ -10,6 +10,11 @@ const closePopupAddBtn = popupAdd.querySelector('.popup__close-icon')
 const closePopupLargeBtn = popupLarge.querySelector('.popup__close-icon')
 const popupLargeImage = popupLarge.querySelector('.popup__img__image')
 const popupLargeTitle = popupLarge.querySelector('.popup_title-img')
+//DOM Узлы
+const elementsContainer = document.querySelector('.elements__list')
+const formCard = document.querySelector('.form_add')
+const inputTitle = document.querySelector('.form__item_el_title')
+const inputUrl = document.querySelector('.form__item_el_url')
 //функция открытия popupEdit c добавление значений в value
 //function popupEditOpen() {
 // popupEdit.classList.add('popup_opened')
@@ -30,6 +35,7 @@ addButtom.addEventListener('click', () => {
 // функция закрытия двух попапов
 function popupClose(popup) {
   popup.classList.remove('popup_opened')
+  popupLargeImage.src = '';
 }
 // закрытие попапов
 closePopupEditBtn.addEventListener('click', () => popupClose(popupEdit))
@@ -86,11 +92,7 @@ const initialCards = [
   },
 ]
 
-//DOM Узлы
-const elementsContainer = document.querySelector('.elements__list')
-const formCard = document.querySelector('.form_add')
-const inputTitle = document.querySelector('.form__item_el_title')
-const inputUrl = document.querySelector('.form__item_el_url')
+
 //Шаблоны
 const cardTemplate = document
   .querySelector('#elements-card')
@@ -137,8 +139,8 @@ const generateCard = (dataCard) => {
 //Обработчик событий
 const handlerSubmitAddCardForm = (event) => {
   event.preventDefault()
-  renderCard({ title: inputTitle.value, link: inputUrl.value })
-  closePopupEditBtn(popupAdd)
+  renderCard({ name: inputTitle.value, link: inputUrl.value })
+  popupClose(popupAdd)
   inputTitle.value = ''
   inputUrl.value = ''
 }
