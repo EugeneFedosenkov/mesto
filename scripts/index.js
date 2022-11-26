@@ -20,18 +20,16 @@ const popupEditInputJobForm = popupEditElementForm.querySelector('.form__item_el
 const templatesCard = document
   .querySelector('#elements-card')
   .content.querySelector('.element')
+const popupOpening = document.querySelector('.popup')
 
 //функция открытия popup c добавление значений в value
 
 function openPopup(popup) {
   popup.classList.add('popup_opened')
-  popupEditInputNameForm.value = nameProfile.textContent;
-  popupEditInputJobForm.value = jobProfile.textContent;
 }
 // функция закрытия двух попапов
 function closePopup(popup) {
   popup.classList.remove('popup_opened')
-  popupLargeImage.src = '';
 }
 
 function submitEditProfileForm(evt) {
@@ -98,14 +96,26 @@ popupAddCardForm.addEventListener('submit', submitAddCardForm)
 // открытие попапов
 editProfileBtn.addEventListener('click', () => {
   openPopup(popupProfileEdit)
+  popupEditInputNameForm.value = nameProfile.textContent;
+  popupEditInputJobForm.value = jobProfile.textContent;
 })
-addProfileBtn.addEventListener('click', () => {
-  openPopup(popupProfileAdd)
-})
+
+addProfileBtn.addEventListener('click', () => openPopup(popupProfileAdd))
 // закрытие попапов
 closePopupEditBtn.addEventListener('click', () => closePopup(popupProfileEdit))
+
 closePopupAddBtn.addEventListener('click', () => closePopup(popupProfileAdd))
-closePopupLargeBtn.addEventListener('click', () => closePopup(popupLargeImg))
+
+closePopupLargeBtn.addEventListener('click', () => {
+  closePopup(popupLargeImg);
+  popupLargeImage.src = '';
+});
+
+
+
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 popupEditElementForm.addEventListener('submit', submitEditProfileForm)
+
+
+  popupLargeImage.src = '';
