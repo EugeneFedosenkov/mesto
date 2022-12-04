@@ -51,22 +51,32 @@
       <div class="popup__container">
         <button type="button" class="popup__close-icon"></button>
         <h3 class="popup__text">Редактировать профиль</h3>
-        <form class="form form_edit" action="URL" name="editForm">
+        <form class="form form_edit" action="URL" name="editForm" novalidate>
           <fieldset class="form__input-container">
             <input
+              id="name-input"
               type="text"
               class="form__item form__item_el_name"
               name="name"
               value=""
               placeholder="Имя"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span class="name-input-error form__input-error"></span>
             <input
+              id="about-input"
               type="text"
               class="form__item form__item_el_about"
               name="profession"
               value=""
               placeholder="О себе"
+              minlength="2"
+              maxlength="200"
+              required
             />
+            <span class="about-input-error form__input-error"></span>
           </fieldset>
           <button type="submit" class="form__button" value="">Сохранить</button>
         </form>
@@ -77,22 +87,30 @@
       <div class="popup__container">
         <button type="button" class="popup__close-icon"></button>
         <h3 class="popup__text">Новое место</h3>
-        <form class="form form_add" action="URL" name="addForm">
+        <form class="form form_add" action="URL" name="addForm" novalidate>
           <fieldset class="form__input-container">
             <input
+              id="title-input"
               type="text"
               class="form__item form__item_el_title"
               name="name"
               value=""
               placeholder="Название"
+              minlength="2"
+              maxlength="30"
+              required
             />
+            <span class="title-input-error form__input-error"></span>
             <input
+              id="url-input"
               type="url"
               class="form__item form__item_el_url"
               name="url"
               value=""
               placeholder="Ссылка на картинку"
+              required
             />
+            <span class="url-input-error form__input-error"></span>
           </fieldset>
           <button type="submit" class="form__button" value="">Сохранить</button>
         </form>
@@ -118,6 +136,8 @@
       </li>
     </template>
     <script src="scripts/constants.js" defer></script>
+    
+    <script src="scripts/validate.js" defer></script>
     <script src="scripts/index.js" defer></script>
   </body>
 </html>

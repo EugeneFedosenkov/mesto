@@ -10,3 +10,17 @@
     margin-right: 19px;
   }
 }
+
+.form__item-error{
+  display: none;
+}
+
+.form__item-error_active{
+  display: inline;
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 15px;
+color: #FF0000;
+}

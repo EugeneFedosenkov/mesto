@@ -22,15 +22,36 @@ const templatesCard = document
   .content.querySelector('.element')
 const popupOpening = document.querySelector('.popup')
 
+
 //функция открытия popup c добавление значений в value
+const closePopupOverlay = (event) => {
+  const isOverlay = event.target.classList.contains('popup_opened');
+  if (isOverlay) {
+    closePopup(event.currentTarget);
+    }
+};
+
+const closePopupEsc = (event) => {
+  const isEsc = (event.key === 'Escape');
+  if (isEsc) {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+};
 
 function openPopup(popup) {
-  popup.classList.add('popup_opened')
+  popup.classList.add('popup_opened');
+  popup.addEventListener('mousedown', closePopupOverlay);
+  document.addEventListener('keydown', closePopupEsc);
 }
 // функция закрытия двух попапов
 function closePopup(popup) {
-  popup.classList.remove('popup_opened')
+  popup.classList.remove('popup_opened');
+  popup.removeEventListener('mousedown', closePopupOverlay);
+  document.removeEventListener('keydown', closePopupEsc);
+  popupAddCardForm.reset();
 }
+
 
 function submitEditProfileForm(evt) {
   evt.preventDefault()
@@ -104,18 +125,22 @@ addProfileBtn.addEventListener('click', () => openPopup(popupProfileAdd))
 // закрытие попапов
 closePopupEditBtn.addEventListener('click', () => closePopup(popupProfileEdit))
 
-closePopupAddBtn.addEventListener('click', () => closePopup(popupProfileAdd))
+closePopupAddBtn.addEventListener('click', () => {
+  closePopup(popupProfileAdd);
+  });
+
 
 closePopupLargeBtn.addEventListener('click', () => {
   closePopup(popupLargeImg);
   popupLargeImage.src = '';
 });
 
-
-
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 popupEditElementForm.addEventListener('submit', submitEditProfileForm)
 
-
   popupLargeImage.src = '';
+
+
+
+  validationSettings.inputSelector
