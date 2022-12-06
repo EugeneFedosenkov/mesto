@@ -5,8 +5,6 @@ const addProfileBtn = document.querySelector('.profile__add-buttom')
 const popupLargeImg = document.querySelector('.popup_largeimg')
 const popupProfileEdit = document.querySelector('.popup_edit')
 const popupProfileAdd = document.querySelector('.popup_add')
-const closePopupEditBtn = popupProfileEdit.querySelector('.popup__close-icon')
-const closePopupAddBtn = popupProfileAdd.querySelector('.popup__close-icon')
 const closePopupLargeBtn = popupLargeImg.querySelector('.popup__close-icon')
 const popupLargeImage = popupLargeImg.querySelector('.popup__image')
 const popupLargeTitle = popupLargeImg.querySelector('.popup__title')
@@ -21,6 +19,8 @@ const templatesCard = document
   .querySelector('#elements-card')
   .content.querySelector('.element')
 const popupOpening = document.querySelector('.popup')
+// находим все крестики проекта по универсальному селектору
+const closeButtons = document.querySelectorAll('.popup__close-icon');
 
 
 //функция открытия popup c добавление значений в value
@@ -122,25 +122,21 @@ editProfileBtn.addEventListener('click', () => {
 })
 
 addProfileBtn.addEventListener('click', () => openPopup(popupProfileAdd))
-// закрытие попапов
-closePopupEditBtn.addEventListener('click', () => closePopup(popupProfileEdit))
 
-closePopupAddBtn.addEventListener('click', () => {
-  closePopup(popupProfileAdd);
-  });
+// Закрытие всех попапов  
+closeButtons.forEach((button) => {
+  // находим 1 раз ближайший к крестику попап 
+  const popup = button.closest('.popup');
+  // устанавливаем обработчик закрытия на крестик
+  button.addEventListener('click', () => closePopup(popup));
+});
 
-
+// Обнуление срц т.к при закрытии попапа с картинкой, она зависает
+// вверху страницы и часть кнопки становятся не кликабельны
 closePopupLargeBtn.addEventListener('click', () => {
-  closePopup(popupLargeImg);
   popupLargeImage.src = '';
 });
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 popupEditElementForm.addEventListener('submit', submitEditProfileForm)
-
-  popupLargeImage.src = '';
-
-
-
-  validationSettings.inputSelector

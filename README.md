@@ -13,3 +13,15 @@
 
 Ссылка на страницу:
 https://eugenefedosenkov.github.io/mesto/
+
+
+Используемые технологии:
+<ul>
+<li>Языки HTML и CSS</li>
+<li>Flexbox Верстка</li>
+<li>Grid Layout</li>
+<li>Медиа запросы для корректного отображения на всех устройствах</li>
+<li>Организация файлов по БЭМ nested</li>
+<li>JavaScript для интерактивности</li>
+<li>Работа с формами</li>
+</ul>

@@ -1,4 +1,4 @@
-validationSettings = {
+const validationSettings = {
   formSelector: '.form',
   inputSelector: '.form__item',
   submitButtonSelector: '.form__button',
@@ -42,9 +42,11 @@ return inputList.some(input => !input.validity.valid)
 
 const toggleButtonState = (inputList, buttonElement) => {
 if (hasInvalidInput(inputList)) {
+  buttonElement.setAttribute("disabled", true);
   buttonElement.classList.add(validationSettings.inactiveButtonClass);
 } else {
-    buttonElement.classList.remove(validationSettings.inactiveButtonClass);
+  buttonElement.removeAttribute("disabled", false);
+  buttonElement.classList.remove(validationSettings.inactiveButtonClass);
 }
 };
 
@@ -56,6 +58,11 @@ const setEventListeners = (formElement, validSettings) => {
   inputElement.addEventListener('input', function () {
     checkInputValidity(formElement, inputElement);
     toggleButtonState(inputList, buttonElement);
+    formElement.addEventListener('reset', () => {
+        setTimeout(() => {
+          toggleButtonState(inputList, buttonElement, validationSettings);
+        });
+      });
   });
 });
 };
