@@ -8,7 +8,7 @@ const validationSettings = {
 };
 
 // Функция, которая добавляет класс с ошибкой
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, validSettings) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(validationSettings.inputErrorClass);
 
@@ -18,7 +18,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 };
 
 // Функция, которая удаляет класс с ошибкой
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, validSettings) => {
   inputElement.classList.remove(validationSettings.inputErrorClass);
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   // Скрываем сообщение об ошибке
@@ -32,15 +32,15 @@ const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement);  
   }
 };
 //////
-const hasInvalidInput = (inputList) => {
+const hasInvalidInput = (inputList,) => {
 return inputList.some(input => !input.validity.valid)
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, validSettings) => {
 if (hasInvalidInput(inputList)) {
   buttonElement.setAttribute("disabled", true);
   buttonElement.classList.add(validationSettings.inactiveButtonClass);
@@ -50,6 +50,8 @@ if (hasInvalidInput(inputList)) {
 }
 };
 
+
+
 const setEventListeners = (formElement, validSettings) => {
   const inputList = Array.from(formElement.querySelectorAll(validSettings.inputSelector));
   const buttonElement = formElement.querySelector(validSettings.submitButtonSelector);
@@ -58,11 +60,6 @@ const setEventListeners = (formElement, validSettings) => {
   inputElement.addEventListener('input', function () {
     checkInputValidity(formElement, inputElement);
     toggleButtonState(inputList, buttonElement);
-    formElement.addEventListener('reset', () => {
-        setTimeout(() => {
-          toggleButtonState(inputList, buttonElement, validationSettings);
-        });
-      });
   });
 });
 };

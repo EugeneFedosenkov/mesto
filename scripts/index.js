@@ -21,6 +21,7 @@ const templatesCard = document
 const popupOpening = document.querySelector('.popup')
 // находим все крестики проекта по универсальному селектору
 const closeButtons = document.querySelectorAll('.popup__close-icon');
+const popupAddBtn = document.querySelector('.form__button_save');
 
 
 //функция открытия popup c добавление значений в value
@@ -49,7 +50,6 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
   popup.removeEventListener('mousedown', closePopupOverlay);
   document.removeEventListener('keydown', closePopupEsc);
-  popupAddCardForm.reset();
 }
 
 
@@ -102,6 +102,8 @@ const submitAddCardForm = (event) => {
   renderInitialCards({ name: popupAddInputTitleForm.value, link: popupAddinputUrlForm.value })
   closePopup(popupProfileAdd)
   popupAddCardForm.reset();
+  popupAddBtn.setAttribute("disabled", true);
+  popupAddBtn.classList.add('button_inactive');
 }
 //Добавление карточки
 const renderInitialCards = (dataCard) => {
