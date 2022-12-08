@@ -28,11 +28,11 @@ const hideInputError = (formElement, inputElement, validSettings) => {
 };
 
 // Функция, которая проверяет валидность поля
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, validSettings) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(formElement, inputElement, inputElement.validationMessage, validSettings);
   } else {
-    hideInputError(formElement, inputElement);  
+    hideInputError(formElement, inputElement, validSettings); 
   }
 };
 //////
@@ -55,11 +55,13 @@ if (hasInvalidInput(inputList)) {
 const setEventListeners = (formElement, validSettings) => {
   const inputList = Array.from(formElement.querySelectorAll(validSettings.inputSelector));
   const buttonElement = formElement.querySelector(validSettings.submitButtonSelector);
+
   toggleButtonState(inputList, buttonElement);
+
   inputList.forEach((inputElement) => {
   inputElement.addEventListener('input', function () {
-    checkInputValidity(formElement, inputElement);
-    toggleButtonState(inputList, buttonElement);
+    checkInputValidity(formElement, inputElement, validSettings);
+    toggleButtonState(inputList, buttonElement, validSettings);
   });
 });
 };
