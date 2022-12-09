@@ -10,19 +10,19 @@ const validationSettings = {
 // Функция, которая добавляет класс с ошибкой
 const showInputError = (formElement, inputElement, errorMessage, validSettings) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(validationSettings.inputErrorClass);
+  inputElement.classList.add(validSettings.inputErrorClass);
 
   // Показываем сообщение об ошибке
   errorElement.textContent = errorMessage;
-  errorElement.classList.add(validationSettings.errorClass);
+  errorElement.classList.add(validSettings.errorClass);
 };
 
 // Функция, которая удаляет класс с ошибкой
 const hideInputError = (formElement, inputElement, validSettings) => {
-  inputElement.classList.remove(validationSettings.inputErrorClass);
+  inputElement.classList.remove(validSettings.inputErrorClass);
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   // Скрываем сообщение об ошибке
-  errorElement.classList.remove(validationSettings.errorClass);
+  errorElement.classList.remove(validSettings.errorClass);
   // Очистим ошибку
   errorElement.textContent = '';
 };
@@ -43,10 +43,10 @@ return inputList.some(input => !input.validity.valid)
 const toggleButtonState = (inputList, buttonElement, validSettings) => {
 if (hasInvalidInput(inputList)) {
   buttonElement.setAttribute("disabled", true);
-  buttonElement.classList.add(validationSettings.inactiveButtonClass);
+  buttonElement.classList.add(validSettings.inactiveButtonClass);
 } else {
   buttonElement.removeAttribute("disabled", false);
-  buttonElement.classList.remove(validationSettings.inactiveButtonClass);
+  buttonElement.classList.remove(validSettings.inactiveButtonClass);
 }
 };
 
@@ -56,7 +56,7 @@ const setEventListeners = (formElement, validSettings) => {
   const inputList = Array.from(formElement.querySelectorAll(validSettings.inputSelector));
   const buttonElement = formElement.querySelector(validSettings.submitButtonSelector);
 
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement, validSettings);
 
   inputList.forEach((inputElement) => {
   inputElement.addEventListener('input', function () {
