@@ -1,143 +1,99 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <link rel="stylesheet" href="./pages/index.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Место</title>
-  </head>
 
-  <body class="page">
-    <header class="header">
-      <img class="logo" src="./images/logo.svg" alt="логотип_Место" />
-    </header>
+<head>
+  <link rel="stylesheet" href="./pages/index.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Место</title>
+</head>
 
-    <main id="content" class="content">
-      <section class="profile">
-        <img
-          class="profile__avatar"
-          src="./images/avatar2.png"
-          alt="фото_профиля"
-        />
+<body class="page">
+  <header class="header">
+    <img class="logo" src="./images/logo.svg" alt="логотип_Место" />
+  </header>
 
-        <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button
-            id="editButtom"
-            type="button"
-            class="profile__edit-buttom"
-            name="profile"
-          ></button>
-          <p class="profile__job">Исследователь океана</p>
-        </div>
-        <button
-          id="addButtom"
-          type="button"
-          class="profile__add-buttom"
-          name="profile"
-        ></button>
-      </section>
+  <main id="content" class="content">
+    <section class="profile">
+      <img class="profile__avatar" src="./images/avatar2.png" alt="фото_профиля" />
 
-      <section class="elements">
-        <ul class="elements__list"></ul>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p class="footer__copyright">© 2020 Mesto Russia</p>
-    </footer>
-
-    <div class="popup popup_edit">
-      <div class="popup__container">
-        <button type="button" class="popup__close-icon"></button>
-        <h3 class="popup__text">Редактировать профиль</h3>
-        <form class="form form_edit" action="URL" name="editForm" novalidate>
-          <fieldset class="form__input-container">
-            <input
-              id="name-input"
-              type="text"
-              class="form__item form__item_el_name"
-              name="name"
-              value=""
-              placeholder="Имя"
-              minlength="2"
-              maxlength="40"
-              required
-            />
-            <span class="name-input-error form__input-error"></span>
-            <input
-              id="about-input"
-              type="text"
-              class="form__item form__item_el_about"
-              name="profession"
-              value=""
-              placeholder="О себе"
-              minlength="2"
-              maxlength="200"
-              required
-            />
-            <span class="about-input-error form__input-error"></span>
-          </fieldset>
-          <button type="submit" class="form__button" value="">Сохранить</button>
-        </form>
+      <div class="profile__info">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button id="editButtom" type="button" class="profile__edit-buttom" name="profile"></button>
+        <p class="profile__job">Исследователь океана</p>
       </div>
-    </div>
+      <button id="addButtom" type="button" class="profile__add-buttom" name="profile"></button>
+    </section>
 
-    <div class="popup popup_add">
-      <div class="popup__container">
-        <button type="button" class="popup__close-icon"></button>
-        <h3 class="popup__text">Новое место</h3>
-        <form class="form form_add" action="URL" name="addForm" novalidate>
-          <fieldset class="form__input-container">
-            <input
-              id="title-input"
-              type="text"
-              class="form__item form__item_el_title"
-              name="name"
-              value=""
-              placeholder="Название"
-              minlength="2"
-              maxlength="30"
-              required
-            />
-            <span class="title-input-error form__input-error"></span>
-            <input
-              id="url-input"
-              type="url"
-              class="form__item form__item_el_url"
-              name="url"
-              value=""
-              placeholder="Ссылка на картинку"
-              required
-            />
-            <span class="url-input-error form__input-error"></span>
-          </fieldset>
-          <button type="submit" class="form__button form__button_save" value="">Сохранить</button>
-        </form>
+    <section class="elements">
+      <ul class="elements__list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">© 2020 Mesto Russia</p>
+  </footer>
+
+  <div class="popup popup_edit">
+    <div class="popup__container">
+      <button type="button" class="popup__close-icon"></button>
+      <h3 class="popup__text">Редактировать профиль</h3>
+      <form class="form form_edit" action="URL" name="editForm" novalidate>
+        <fieldset class="form__input-container">
+          <input id="name-input" type="text" class="form__item form__item_el_name" name="name" value=""
+            placeholder="Имя" minlength="2" maxlength="40" required />
+          <span class="name-input-error form__input-error"></span>
+          <input id="about-input" type="text" class="form__item form__item_el_about" name="profession" value=""
+            placeholder="О себе" minlength="2" maxlength="200" required />
+          <span class="about-input-error form__input-error"></span>
+        </fieldset>
+        <button type="submit" class="form__button button_inactive" value="">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+
+
+  <div class="popup popup_add">
+    <div class="popup__container">
+      <button type="button" class="popup__close-icon"></button>
+      <h3 class="popup__text">Новое место</h3>
+      <form class="form form_add" action="URL" name="addForm" novalidate>
+        <fieldset class="form__input-container">
+          <input id="title-input" type="text" class="form__item form__item_el_title" name="name" value=""
+            placeholder="Название" minlength="2" maxlength="30" required />
+          <span class="title-input-error form__input-error"></span>
+          <input id="url-input" type="url" class="form__item form__item_el_url" name="url" value=""
+            placeholder="Ссылка на картинку" required />
+          <span class="url-input-error form__input-error"></span>
+        </fieldset>
+        <button type="submit" class="form__button form__button_save button_inactive" value="">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_largeimg">
+    <div class="popup__img">
+      <button type="button" class="popup__close-icon"></button>
+      <img class="popup__image" src="#" alt="" />
+      <h3 class="popup__title"></h3>
+    </div>
+  </div>
+
+  <template id="elements-card">
+    <li class="element">
+      <button class="element__trash" type="button"></button>
+      <img class="element__mask">
+      <div class="element__container">
+        <h2 class="element__title"></h2>
+        <button type="button" class="element__like"></button>
       </div>
-    </div>
+    </li>
+  </template>
 
-    <div class="popup popup_largeimg">
-      <div class="popup__img">
-        <button type="button" class="popup__close-icon"></button>
-        <img class="popup__image" src="#" alt="" />
-        <h3 class="popup__title"></h3>
-      </div>
-    </div>
+  <script type="module" src="./scripts/index.js"></script>
 
-    <template id="elements-card">
-      <li class="element">
-        <button class="element__trash" type="button"></button>
-        <img class="element__mask" />
-        <div class="element__container">
-          <h2 class="element__title"></h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </li>
-    </template>
-    <script src="scripts/constants.js" defer></script>
-    
-    <script src="scripts/validate.js" defer></script>
-    <script src="scripts/index.js" defer></script>
-  </body>
+
+</body>
+
 </html>

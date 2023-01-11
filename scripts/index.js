@@ -1,35 +1,33 @@
+const editProfileBtn = document.querySelector('.profile__edit-buttom')
+const popupProfileEdit = document.querySelector('.popup_edit')
+export const popupProfileAdd = document.querySelector('.popup_add')
+export const popupLargeImg = document.querySelector('.popup_largeimg')
+const popupEditCloseBtn = popupProfileEdit.querySelector('.popup__close-icon')
+const popupAddCloseBtn = popupProfileAdd.querySelector('.popup__close-icon')
+const popupLargeImgCloseBtn = popupLargeImg.querySelector('.popup__close-icon')
+const popupEditElementForm = document.querySelector('.form_edit')
+export const popupAddCardForm = document.querySelector('.form_add')
 const nameProfile = document.querySelector('.profile__name')
 const jobProfile = document.querySelector('.profile__job')
-const editProfileBtn = document.querySelector('.profile__edit-buttom')
+const popupEditInputNameForm = popupEditElementForm.querySelector('.form__item_el_name')
+const popupEditInputJobForm = popupEditElementForm.querySelector('.form__item_el_about')
 const addProfileBtn = document.querySelector('.profile__add-buttom')
-const popupLargeImg = document.querySelector('.popup_largeimg')
-const popupProfileEdit = document.querySelector('.popup_edit')
-const popupProfileAdd = document.querySelector('.popup_add')
-const closePopupLargeBtn = popupLargeImg.querySelector('.popup__close-icon')
+export const popupAddInputTitleForm = document.querySelector('.form__item_el_title')
+export const popupAddinputUrlForm = document.querySelector('.form__item_el_url')
 const popupLargeImage = popupLargeImg.querySelector('.popup__image')
 const popupLargeTitle = popupLargeImg.querySelector('.popup__title')
 const elementsCardContainer = document.querySelector('.elements__list')
-const popupAddCardForm = document.querySelector('.form_add')
-const popupAddInputTitleForm = document.querySelector('.form__item_el_title')
-const popupAddinputUrlForm = document.querySelector('.form__item_el_url')
-const popupEditElementForm = document.querySelector('.form_edit') 
-const popupEditInputNameForm = popupEditElementForm.querySelector('.form__item_el_name')
-const popupEditInputJobForm = popupEditElementForm.querySelector('.form__item_el_about')
-const templatesCard = document
-  .querySelector('#elements-card')
-  .content.querySelector('.element')
-const popupOpening = document.querySelector('.popup')
-// находим все крестики проекта по универсальному селектору
-const closeButtons = document.querySelectorAll('.popup__close-icon');
-const popupAddBtn = document.querySelector('.form__button_save');
 
+import { validationSettings, initialCards } from "./constants.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 //функция открытия popup c добавление значений в value
 const closePopupOverlay = (event) => {
   const isOverlay = event.target.classList.contains('popup_opened');
   if (isOverlay) {
     closePopup(event.currentTarget);
-    }
+  }
 };
 
 const closePopupEsc = (event) => {
@@ -40,18 +38,25 @@ const closePopupEsc = (event) => {
   }
 };
 
-function openPopup(popup) {
+export const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   popup.addEventListener('mousedown', closePopupOverlay);
   document.addEventListener('keydown', closePopupEsc);
-}
+};
+
 // функция закрытия двух попапов
-function closePopup(popup) {
+export const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   popup.removeEventListener('mousedown', closePopupOverlay);
   document.removeEventListener('keydown', closePopupEsc);
 }
 
+const openPopupLargeImage = (name, link) => {
+  popupLargeImage.src = link;
+  popupLargeTitle.textContent = name;
+  popupLargeImage.alt = name;
+  openPopup(popupLargeImg)
+};
 
 function submitEditProfileForm(evt) {
   evt.preventDefault()
@@ -60,85 +65,51 @@ function submitEditProfileForm(evt) {
   closePopup(popupProfileEdit)
 }
 
-const handleTemplatesDeleteCard = (event) => {
-  event.target.closest('.element').remove()
-}
 
-//(функция лайка карточек)
-const handleTemplatesLikeCard = (event) => {
-  event.target
-    .closest('.element__like')
-    .classList.toggle('element__like_active')
-}
-
-const generateTemplatesCard = (dataCard) => {
-  const newTemplatesCard = templatesCard.cloneNode(true)
-  const titleTemplates = newTemplatesCard.querySelector('.element__title')
-  const imageTemplates = newTemplatesCard.querySelector('.element__mask')
-  titleTemplates.textContent = dataCard.name
-  imageTemplates.src = dataCard.link
-  imageTemplates.alt = dataCard.name
-  //( слушатель удаление карточек)
-  const deleteTemplatesBtn = newTemplatesCard.querySelector('.element__trash')
-  deleteTemplatesBtn.addEventListener('click', handleTemplatesDeleteCard)
-  //( слушатель лайка карточек)
-  const likeTemplatesBtn = newTemplatesCard.querySelector('.element__like')
-  likeTemplatesBtn.addEventListener('click', handleTemplatesLikeCard)
-
-  const openPopupLargeImage = () => {
-    openPopup(popupLargeImg)
-    popupLargeImage.src = imageTemplates.src
-    popupLargeTitle.textContent = dataCard.name
-    popupLargeImage.alt = dataCard.name
-  }
-  imageTemplates.addEventListener('click', openPopupLargeImage)
-
-  return newTemplatesCard
-}
-
-//Обработчик событий
-const submitAddCardForm = (event) => {
-  event.preventDefault()
-  renderInitialCards({ name: popupAddInputTitleForm.value, link: popupAddinputUrlForm.value })
-  closePopup(popupProfileAdd)
-  popupAddCardForm.reset();
-  popupAddBtn.setAttribute("disabled", true);
-  popupAddBtn.classList.add('button_inactive');
-}
-//Добавление карточки
-const renderInitialCards = (dataCard) => {
-  elementsCardContainer.prepend(generateTemplatesCard(dataCard))
-}
-
-initialCards.forEach((dataCard) => {
-  renderInitialCards(dataCard)
-})
-
-//Рендер всех карточек
-popupAddCardForm.addEventListener('submit', submitAddCardForm)
-// открытие попапов
 editProfileBtn.addEventListener('click', () => {
   openPopup(popupProfileEdit)
   popupEditInputNameForm.value = nameProfile.textContent;
   popupEditInputJobForm.value = jobProfile.textContent;
-})
-
-addProfileBtn.addEventListener('click', () => openPopup(popupProfileAdd))
-
-// Закрытие всех попапов  
-closeButtons.forEach((button) => {
-  // находим 1 раз ближайший к крестику попап 
-  const popup = button.closest('.popup');
-  // устанавливаем обработчик закрытия на крестик
-  button.addEventListener('click', () => closePopup(popup));
 });
 
-// Обнуление срц т.к при закрытии попапа с картинкой, она зависает
-// вверху страницы и часть кнопки становятся не кликабельны
-closePopupLargeBtn.addEventListener('click', () => {
-  popupLargeImage.src = '';
+//Добавление карточки
+const renderInitialCards = (dataCard, templateSelector, openPopupLargeImage) => {
+  const card = new Card(dataCard, templateSelector, openPopupLargeImage);
+  elementsCardContainer.prepend(card.generateCard());
+}
+
+initialCards.forEach((dataCard) => {
+  renderInitialCards(dataCard, '#elements-card', openPopupLargeImage);
 });
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-popupEditElementForm.addEventListener('submit', submitEditProfileForm)
+//Обработчик событий
+const submitAddCardForm = (event) => {
+  event.preventDefault()
+  renderInitialCards({ name: popupAddInputTitleForm.value, link: popupAddinputUrlForm.value }, '#elements-card', openPopupLargeImage)
+  popupAddCardForm.reset();
+  closePopup(popupProfileAdd)
+};
+
+popupAddCardForm.addEventListener('submit', submitAddCardForm);
+addProfileBtn.addEventListener('click', () => { openPopup(popupProfileAdd) });
+popupEditElementForm.addEventListener('submit', submitEditProfileForm);
+editProfileBtn.addEventListener('click', () => { openPopup(popupProfileEdit) });
+
+popupAddCloseBtn.addEventListener('click', () => { closePopup(popupProfileAdd) });
+popupEditCloseBtn.addEventListener('click', () => { closePopup(popupProfileEdit) });
+popupLargeImgCloseBtn.addEventListener('click', () => { closePopup(popupLargeImg) });
+
+const validationFormAddCard = new FormValidator(validationSettings, popupAddCardForm);
+validationFormAddCard.enableValidation();
+
+const validationFormEditProfile = new FormValidator(validationSettings, popupEditElementForm);
+validationFormEditProfile.enableValidation();
+
+
+
+
+
+
+
+
+
