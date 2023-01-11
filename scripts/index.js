@@ -106,7 +106,11 @@ const validationFormEditProfile = new FormValidator(validationSettings, popupEdi
 validationFormEditProfile.enableValidation();
 
 
-
+// Обнуление срц т.к при закрытии попапа с картинкой, она зависает
+// вверху страницы и часть кнопки становятся не кликабельны
+popupLargeImgCloseBtn.addEventListener('click', () => {
+  popupLargeImage.src = '';
+});
 
 
 
