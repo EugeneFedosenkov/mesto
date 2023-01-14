@@ -2,11 +2,9 @@ const editProfileBtn = document.querySelector('.profile__edit-buttom')
 const popupProfileEdit = document.querySelector('.popup_edit')
 export const popupProfileAdd = document.querySelector('.popup_add')
 export const popupLargeImg = document.querySelector('.popup_largeimg')
-const popupEditCloseBtn = popupProfileEdit.querySelector('.popup__close-icon')
-const popupAddCloseBtn = popupProfileAdd.querySelector('.popup__close-icon')
-const popupLargeImgCloseBtn = popupLargeImg.querySelector('.popup__close-icon')
-const popupEditElementForm = document.querySelector('.form_edit')
-export const popupAddCardForm = document.querySelector('.form_add')
+const closeButtons = document.querySelectorAll('.popup__close-icon');
+const popupEditElementForm = document.forms["editForm"];
+export const popupAddCardForm = document.forms["addForm"];
 const nameProfile = document.querySelector('.profile__name')
 const jobProfile = document.querySelector('.profile__job')
 const popupEditInputNameForm = popupEditElementForm.querySelector('.form__item_el_name')
@@ -72,11 +70,18 @@ editProfileBtn.addEventListener('click', () => {
   popupEditInputJobForm.value = jobProfile.textContent;
 });
 
-//Добавление карточки
-const renderInitialCards = (dataCard, templateSelector, openPopupLargeImage) => {
-  const card = new Card(dataCard, templateSelector, openPopupLargeImage);
-  elementsCardContainer.prepend(card.generateCard());
+
+function createCard(dataCard) {
+  const card = new Card(dataCard, '#elements-card', openPopupLargeImage);
+  const cardElement = card.generateCard();
+return cardElement;
+};
+
+const renderInitialCards = (dataCard) => {
+  const card = createCard(dataCard)
+  elementsCardContainer.prepend(card);
 }
+
 
 initialCards.forEach((dataCard) => {
   renderInitialCards(dataCard, '#elements-card', openPopupLargeImage);
@@ -95,24 +100,18 @@ addProfileBtn.addEventListener('click', () => { openPopup(popupProfileAdd) });
 popupEditElementForm.addEventListener('submit', submitEditProfileForm);
 editProfileBtn.addEventListener('click', () => { openPopup(popupProfileEdit) });
 
-popupAddCloseBtn.addEventListener('click', () => { closePopup(popupProfileAdd) });
-popupEditCloseBtn.addEventListener('click', () => { closePopup(popupProfileEdit) });
-popupLargeImgCloseBtn.addEventListener('click', () => { closePopup(popupLargeImg) });
+closeButtons.forEach((button) => {
+  // находим 1 раз ближайший к крестику попап 
+  const popup = button.closest('.popup');
+  // устанавливаем обработчик закрытия на крестик
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 const validationFormAddCard = new FormValidator(validationSettings, popupAddCardForm);
 validationFormAddCard.enableValidation();
 
 const validationFormEditProfile = new FormValidator(validationSettings, popupEditElementForm);
 validationFormEditProfile.enableValidation();
-
-
-// Обнуление срц т.к при закрытии попапа с картинкой, она зависает
-// вверху страницы и часть кнопки становятся не кликабельны
-popupLargeImgCloseBtn.addEventListener('click', () => {
-  popupLargeImage.src = '';
-});
-
-
 
 
 

@@ -42,13 +42,15 @@ class Card {
   generateCard() {
     this._element = this._getTemplate();
 
+    this._bigImage = this._element.querySelector('.element__mask');
+
     this._element.querySelector('.element__title').textContent = this._name;
-    this._element.querySelector('.element__mask').src = this._link;
-    this._element.querySelector('.element__mask').alt = this._name;
+    this._bigImage.src = this._link;
+    this._bigImage.alt = this._name;
 
     this._like = this._element.querySelector('.element__like');
     this._remove = this._element.querySelector('.element__trash');
-    this._bigImage = this._element.querySelector('.element__mask');
+    
 
     this._setEventListeners();
 
